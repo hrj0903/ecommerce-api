@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoute from './routes/user.js';
 import authRoute from './routes/auth.js';
+import productRoute from './routes/product.js';
+
 import cors from 'cors';
 dotenv.config();
 
@@ -17,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
+app.use('/api/products', productRoute);
 
 app.listen(process.env.port || 8000, () => {
   console.log('Backend server is running!');
